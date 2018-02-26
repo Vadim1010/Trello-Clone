@@ -34,22 +34,22 @@ export class TrelloItemComponent {
     this.changeTrello = !this.changeTrello;
   }
 
-  public onChangeTitleTrello (event: Event): void {
-    const newTrello = Object.assign(this.trelloItem, {title: (<HTMLInputElement> event.target).value});
+  public onChangeTitleTrello (event: HTMLInputElement): void {
+    const newTrello = Object.assign({}, this.trelloItem, {title: event.value});
 
     this.changeTrelloHandler.emit(newTrello);
 
     this.changeTrello = false;
   }
 
-  public addTask (event: Event): void {
+  public addTask (event: HTMLInputElement): void {
     const newId = this.randomInteger();
 
     this.trelloItem.taskItems.push(
-      Object.assign({}, DEFAULT_TASK, {id: newId, title: (<HTMLInputElement> event.target).value})
+      Object.assign({}, DEFAULT_TASK, {id: newId, title: event.value})
     );
 
-    (<HTMLInputElement> event.target).value = '';
+    event.value = '';
 
     this.addTaskHandler.emit(this.trelloItem);
   }
@@ -62,7 +62,7 @@ export class TrelloItemComponent {
     this.deleteTaskHandler.emit(this.trelloItem);
   }
 
-  private randomInteger(): number {
+  private randomInteger (): number {
     const min = 1000;
     const max = 1000000;
 

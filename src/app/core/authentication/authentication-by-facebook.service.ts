@@ -9,7 +9,7 @@ export class AuthenticationByFacebookService {
   constructor(private fb: FacebookService) {
   }
 
-  loginUserByFB(): Promise<string> {
+  public loginUserByFB(): Promise<string> {
     this.fb.init(FB.initParams);
 
     return this.fb.getLoginStatus().then((res): Promise<string> => {

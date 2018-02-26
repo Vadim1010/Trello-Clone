@@ -1,8 +1,8 @@
 # Start project
-  npm i
-  npm start
+ * npm i
+ * npm start
 
 # Start json-server
-  cd ./json-server
-  npm i
-  json-server --watch data.json
+ * cd ./json-server
+ * npm i
+ * json-server --watch data.json
