@@ -3,6 +3,6 @@ npm i
 npm start
 
 ## Start json-server
- cd ./json-server
- npm i
- json-server --watch db.json
+# cd ./json-server
+# npm i
+# json-server --watch db.json
