@@ -108,7 +108,7 @@ module.exports = function(argv) {
   function start(cb) {
     console.log()
 
-    // Be nice and create a default db.json if it doesn't exist
+    // Be nice and create a default data.json if it doesn't exist
     if (is.JSON(source) && !fs.existsSync(source)) {
       console.log(chalk.yellow(`  Oops, ${source} doesn't seem to exist`))
       console.log(chalk.yellow(`  Creating ${source} with some default data`))

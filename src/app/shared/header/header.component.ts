@@ -3,8 +3,7 @@ import { MatDialog } from '@angular/material';
 import { Subscription } from 'rxjs/Subscription';
 import { AuthenticationComponent } from '../authentication';
 import { CONFIG_MODAL } from '../../app.config';
-import { AuthenticationService } from '../../core';
-import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular5-social-login';
+import { AuthenticationService, AuthenticationByFacebookService } from '../../core';
 
 @Component({
   selector: 'tt-header',
@@ -18,7 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor (private dialog: MatDialog,
                private authentication: AuthenticationService,
-               private socialAuthService: AuthService) {
+               private fb: AuthenticationByFacebookService) {
   }
 
   public ngOnInit (): void {
@@ -31,7 +30,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public openDialog (): void {
     let dialogRef = this.dialog.open(AuthenticationComponent, {
-      width: CONFIG_MODAL.Authentication,
+      width: CONFIG_MODAL.Authentication
     });
   }
 
@@ -47,18 +46,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  public socialSignIn(socialPlatform : string) {
-    let socialPlatformProvider;
-    if(socialPlatform == "facebook"){
-      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
-    }else if(socialPlatform == "google"){
-      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-    }
+  public socialSignIn (type: string): void {
+    this.fb.loginUserByFB()
+      .then((token) => {
+        if (token) {
+          this.authentication.userAuthorization.next(true);
+        } else if (!!token) {
+          throw Error('Error in Facebook logination!!!');
+        }
+      });
+  }
 
-    this.socialAuthService.signIn(socialPlatformProvider).then(
-      (userData) => {
-        console.log(socialPlatform+" sign in data : " , userData);
-      }
-    )
+  public onLogUotFb (): void {
+    this.fb.logout();
+    this.onLogUotUser();
   }
 }

@@ -260,7 +260,7 @@ describe('cli', () => {
     })
   })
 
-  describe('--watch db.json -r routes.json', () => {
+  describe('--watch data.json -r routes.json', () => {
     beforeEach(done => {
       child = cli([dbFile, '-r', routesFile, '--watch'])
       serverReady(PORT, done)
@@ -281,7 +281,7 @@ describe('cli', () => {
     })
   })
 
-  describe('non existent db.json', () => {
+  describe('non existent data.json', () => {
     beforeEach(done => {
       fs.unlinkSync(dbFile)
       child = cli([dbFile])

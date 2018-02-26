@@ -7,6 +7,6 @@ export const REST: { [key: string]: string } = {
 };
 
 export const CONFIG_MODAL: { [key: string]: string } = {
-  AuthenticationComponent: '500px',
+  AuthenticationComponent: '400px',
   TaskDetailComponent: '500px'
 };

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HeaderComponent } from './header.component';
 import { AuthenticationComponent, AuthenticationModule } from '../authentication';
-import { AuthService } from 'angular5-social-login';
+import { AuthenticationByFacebookService } from '../../core';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { AuthService } from 'angular5-social-login';
   ],
   exports: [HeaderComponent],
   entryComponents: [AuthenticationComponent],
-  providers: [AuthService]
+  providers: [AuthenticationByFacebookService]
 })
 export class HeaderModule {
 }

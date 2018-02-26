@@ -87,9 +87,9 @@ module.exports = function() {
     .alias('help', 'h')
     .version(pkg.version)
     .alias('version', 'v')
-    .example('$0 db.json', '')
+    .example('$0 data.json', '')
     .example('$0 file.js', '')
-    .example('$0 http://example.com/db.json', '')
+    .example('$0 http://example.com/data.json', '')
     .epilog('https://github.com/typicode/json-server')
     .require(1, 'Missing <source> argument').argv
 

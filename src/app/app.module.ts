@@ -21,8 +21,8 @@ import { AppState, InternalStateType } from './app.service';
 import { FeaturesModule } from './features';
 import { SharedModule } from './shared';
 import { HttpClientInterceptor } from './core/http-client.interceptor';
-import { AuthenticationService, getAuthServiceConfigs } from './core';
-import { AuthServiceConfig } from 'angular5-social-login';
+import { AuthenticationService } from './core';
+import { FacebookService } from 'ngx-facebook';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -77,10 +77,7 @@ type StoreType = {
       multi: true
     },
     AuthenticationService,
-    {
-      provide: AuthServiceConfig,
-      useFactory: getAuthServiceConfigs
-    }
+    FacebookService
   ]
 })
 export class AppModule {
