@@ -1,0 +1,10 @@
+@import '~styles/main';
+
+.trello-list {
+  @include display-flex($wrap: wrap, $align: stretch);
+
+  &__create-trello {
+    padding: 10px 15px;
+    text-align: center;
+  }
+}

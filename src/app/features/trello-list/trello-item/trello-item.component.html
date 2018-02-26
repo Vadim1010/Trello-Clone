@@ -1,0 +1,37 @@
+<div class="trello-item  panel panel-default">
+  <div class='wrapper'>
+    <div class="panel-heading panel panel-primary trello-item__header">
+      <h4>{{trelloItem.title | uppercase}}</h4>
+      <div class="header__menu"
+           *ngIf="userStatus">
+        <span class="menu__change"
+              (click)="clickChange(trelloItem.id)">
+         	&#9998;
+        </span>
+        <span class="menu__delete"
+              (click)="clickDeleteTrello(trelloItem.id)">
+          &#88;
+        </span>
+        <input type="text"
+               class="menu__input btn-lg col-xs-12"
+               value="{{trelloItem?.title}}"
+               *ngIf="changeTrello"
+               (blur)="onChangeTitleTrello($event)">
+      </div>
+    </div>
+    <div class='container panel-body trello-item__body' [dragula]='"first-bag"'>
+      <div *ngFor="let task of trelloItem.taskItems" class="panel panel-success">
+        <tt-tack-item [task]="task"
+                      [userStatus]="userStatus"
+                      (onClickHandler)="openDialog($event)"
+                      (onDeleteTaskHandler)="deleteTask($event)">
+        </tt-tack-item>
+      </div>
+      <input type="text"
+             class="menu__input btn-lg col-xs-12"
+             *ngIf="userStatus"
+             placeholder="Title new task"
+             (blur)="addTask($event)">
+    </div>
+  </div>
+</div>

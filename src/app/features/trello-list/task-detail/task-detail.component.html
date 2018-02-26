@@ -1,0 +1,59 @@
+<div class="task-detail list-group-item"
+     [ngSwitch]="changeIs">
+  <div class="task-detail__menu">
+      <span class="menu__change"
+            (click)="change()">
+         	&#9998;
+        </span>
+    <span class="menu__closed"
+          (click)="onNoClick()">&#88;</span>
+  </div>
+  <div *ngSwitchCase="true">
+    <h4 class="task-detail__title">{{trello?.taskItems[index].title | uppercase}}</h4>
+    <div class="task-detail__img">
+      <img src="{{trello?.taskItems[index].img}}" alt="{{trello?.taskItems[index].title}}">
+    </div>
+    <p class="task-detail__description">{{trello?.taskItems[index].description}}</p>
+    <p class="task-detail__time">{{trello?.taskItems[index].dueDate | date}}</p>
+  </div>
+
+  <form *ngSwitchCase="false"
+        #task="ngForm"
+        class="row"
+        novalidate
+        (submit)="onSubmit(task.value)">
+    <label class="col-xs-12">
+      Title:
+      <input type="text"
+             class="btn-lg"
+             [ngModel]="trello?.taskItems[index].title"
+             name="title"
+             #title="ngModel">
+    </label>
+    <label class="col-xs-12">
+      Url Img:
+      <input type="text"
+             class="btn-lg"
+             [ngModel]="trello?.taskItems[index].img"
+             name="img"
+             #img="ngModel">
+    </label>
+    <label class="col-xs-12">
+      Description:
+      <input type="text"
+             class="btn-lg"
+             [ngModel]="trello?.taskItems[index].description"
+             name="description"
+             #description="ngModel">
+    </label>
+    <label class="col-xs-12">
+      Due Date:
+      <input type="text"
+             class="btn-lg"
+             [ngModel]="trello?.taskItems[index].dueDate"
+             name="dueDate"
+             #dueDate="ngModel">
+    </label>
+    <button type="submit" class="btn btn-success">Change Task</button>
+  </form>
+</div>

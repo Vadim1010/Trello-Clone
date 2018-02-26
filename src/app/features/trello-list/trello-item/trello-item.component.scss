@@ -1,0 +1,42 @@
+@import '~styles/main';
+
+.trello-item {
+  &__header {
+    text-align: center;
+    color: $color-white;
+    background: $color-blue;
+
+    @include text-overflow();
+
+    .header {
+      &__menu {
+        @include display-flex($justify: space-between, $wrap: wrap);
+
+        .menu {
+          &__delete {
+            color: $color-red;
+            cursor: pointer;
+          }
+          &__change {
+            color: $color-white;
+            cursor: pointer;
+          }
+          &__input {
+            color: $color-black;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+  &__body {
+    max-width: 100%;
+  }
+  &__input {
+    display: block;
+    margin: 0 auto;
+    max-width: 90%;
+    margin-bottom: 5px;
+  }
+
+}

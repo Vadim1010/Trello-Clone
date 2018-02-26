@@ -1,0 +1,15 @@
+<div class="task-item"
+     mat-raised-button
+     (click)="openDialog(task)">
+  <div class="task-item__delete">
+       <span
+         *ngIf="userStatus"
+         (click)="onDeleteTask(task)">
+          &#88;
+        </span>
+  </div>
+  <h6 class="task-item__title">
+    {{task.title | uppercase}}
+  </h6>
+  <p class="task-item__time">{{task.dueDate | date}}</p>
+</div>

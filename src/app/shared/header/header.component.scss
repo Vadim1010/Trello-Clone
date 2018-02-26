@@ -1,0 +1,10 @@
+@import '~styles/main';
+
+.header {
+  &__title {
+    text-align: center;
+    color: $color-white
+  }
+  &__user-status{
+  }
+}

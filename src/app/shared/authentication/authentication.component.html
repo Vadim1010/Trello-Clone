@@ -1,0 +1,45 @@
+<div class="authentication row">
+  <h4 class="authentication__title"
+      [innerHtml]="formStatus ? config.registration.title : config.authorization.title">
+  </h4>
+  <form #userIn="ngForm"
+        class="form-group form-inline"
+        novalidate
+        (submit)="onLogIn(userIn.value)">
+    <div class="authentication__input col-sm-12">
+      <input type="text"
+             class="form-control"
+             ngModel
+             name="name"
+             #name="ngModel"
+             placeholder="User name">
+      <input type="email"
+             class="form-control"
+             ngModel
+             name="email"
+             #email="ngModel"
+             placeholder="User email">
+    </div>
+    <div class="authentication__btn col-sm-12">
+      <button type="button"
+              class="btn btn-warning"
+              mat-button (click)="onNoClick()">Cancel
+      </button>
+      <button type="submit"
+              class="btn btn-success"
+              [innerHtml]="formStatus ? config.registration.value : config.authorization.value">
+      </button>
+    </div>
+  </form>
+  <div class="authentication__switch">
+    <p>
+      <a (click)="changeStatusForm(false)">Authorization</a>
+      /
+      <a (click)="changeStatusForm(true)">Registration</a>
+    </p>
+  </div>
+  <p *ngIf="errorMessagesIs"
+     class="authentication__error-messages"
+     [innerHtml]="formStatus ? config.registration.errorMessage : config.authorization.errorMessage">
+  </p>
+</div>

@@ -1,0 +1,20 @@
+<div class="trello-list row">
+  <div class="trello-list__create-trello col-sm-12">
+    <input type="text"
+           class="trello-item__input btn-lg"
+           placeholder="New title Trello"
+           *ngIf="userStatus"
+           (blur)="createTrello($event)">
+  </div>
+  <div class="trello-list__trello-item col-md-3 col-sm-6"
+       *ngFor="let trello of trelloList">
+    <tt-trello-item [trelloItem]="trello"
+                    [userStatus]="userStatus"
+                    (openDialogHandler)="openDialog($event)"
+                    (deleteTrelloHandler)="deleteTrello($event)"
+                    (changeTrelloHandler)="changeTrelloTitle($event)"
+                    (addTaskHandler)="changeTrello($event)"
+                    (deleteTaskHandler)="changeTrello($event)">
+    </tt-trello-item>
+  </div>
+</div>

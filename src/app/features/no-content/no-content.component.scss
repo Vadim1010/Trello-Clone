@@ -1,0 +1,7 @@
+@import '~styles/main';
+
+.no-content {
+  @include display-flex($justify: center, $align: center);
+
+  color: $color-red;
+}

@@ -1,0 +1,43 @@
+@import '~styles/main';
+
+.task-detail {
+  max-width: 100%;
+  max-height: 90vh;
+  &__menu {
+    @include display-flex($justify: space-between);
+
+    text-align: right;
+    .menu {
+      &__closed {
+        cursor: pointer;
+        font-size: large;
+        color: $color-red;
+      }
+      &__change {
+        color: $color-blue;
+        cursor: pointer;
+        font-size: large;
+      }
+    }
+  }
+  &__title {
+    text-align: center;
+  }
+  &__img {
+    @include display-flex($justify: center);
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  &__description {
+    margin: 10px 0;
+  }
+  &__time {
+    text-align: right;
+  }
+  form {
+    text-align: center;
+  }
+}

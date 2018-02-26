@@ -1,0 +1,19 @@
+@import '../../../styles/main';
+
+.authentication {
+  text-align: center;
+  &__switch {
+    a {
+      cursor: pointer;
+    }
+  }
+  &__btn {
+    margin: 15px 0
+  }
+  &__error-messages {
+    color: $color-red;
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import '~styles/main';
+
+.task-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  &__title {
+    @include text-overflow();
+  }
+  &:hover {
+    .task-item__title {
+      color: $color-blue;
+    }
+  }
+  &__delete {
+    color: $color-red;
+    cursor: pointer;
+    text-align: center;
+  }
+}
