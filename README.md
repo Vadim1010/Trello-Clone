@@ -1,8 +1,8 @@
-## Start project
-npm i
-npm start
+# Start project
+###npm i
+###npm start
 
-## Start json-server
-# cd ./json-server
-# npm i
-# json-server --watch db.json
+# Start json-server
+#### cd ./json-server
+### npm i
+### json-server --watch db.json
